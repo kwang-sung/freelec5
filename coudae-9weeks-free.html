@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>쿠대 일요 무료특강 9주 릴레이</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Bebas+Neue&family=Noto+Serif+KR:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0c0e14;
+  --bg2: #13161f;
+  --bg3: #1a1e2a;
+  --gold: #e8b84b;
+  --gold2: #f5d070;
+  --gold-pale: rgba(232,184,75,0.1);
+  --red: #e84b4b;
+  --teal: #4be8c0;
+  --white: #f0eeea;
+  --gray: #8a8fa8;
+  --border: rgba(232,184,75,0.2);
+  --border2: rgba(255,255,255,0.07);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--white);
+  font-family:'Noto Sans KR',sans-serif;
+  font-size:16px;
+  line-height:1.75;
+  overflow-x:hidden;
+}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:6rem 2rem 4rem;
+  position:relative;overflow:hidden;
+  text-align:center;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(232,184,75,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 80% 80%, rgba(75,232,192,0.06) 0%, transparent 50%);
+  pointer-events:none;
+}
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(232,184,75,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(232,184,75,0.03) 1px, transparent 1px);
+  background-size:60px 60px;
+  pointer-events:none;
+}
+
+.badge{
+  display:inline-flex;align-items:center;gap:8px;
+  border:1px solid var(--gold);
+  color:var(--gold);
+  padding:6px 18px;
+  font-size:0.72rem;font-weight:700;
+  letter-spacing:0.18em;text-transform:uppercase;
+  margin-bottom:2rem;
+  animation:fadeUp 0.5s ease both;
+}
+.badge-dot{
+  width:7px;height:7px;
+  background:var(--gold);border-radius:50%;
+  animation:pulse 1.6s ease infinite;
+}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.3;transform:scale(1.5);}}
+
+.hero-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(3rem,9vw,8rem);
+  line-height:0.88;
+  letter-spacing:0.03em;
+  color:var(--white);
+  margin-bottom:1.5rem;
+  animation:fadeUp 0.5s 0.1s ease both;
+}
+.hero-title .gold{color:var(--gold);}
+.hero-title .line2{
+  display:block;
+  font-size:clamp(1.8rem,5vw,4.5rem);
+  color:var(--gray);
+  letter-spacing:0.08em;
+  margin-top:0.2em;
+}
+
+.hero-desc{
+  font-size:1.05rem;color:var(--gray);
+  max-width:600px;margin:0 auto 2.5rem;
+  line-height:1.9;
+  animation:fadeUp 0.5s 0.2s ease both;
+}
+.hero-desc strong{color:var(--white);}
+
+.hero-meta{
+  display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;
+  margin-bottom:3rem;
+  animation:fadeUp 0.5s 0.3s ease both;
+}
+.meta-item{
+  display:flex;align-items:center;gap:0.5rem;
+  font-size:0.88rem;color:var(--gray);
+}
+.meta-item strong{color:var(--gold);font-size:0.95rem;}
+
+.hero-cta{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  background:var(--gold);color:#0c0e14;
+  padding:1rem 2.5rem;
+  font-weight:900;font-size:0.95rem;
+  letter-spacing:0.06em;text-transform:uppercase;
+  text-decoration:none;
+  transition:all 0.2s;
+  animation:fadeUp 0.5s 0.4s ease both;
+}
+.hero-cta:hover{background:var(--gold2);transform:translateY(-2px);}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(24px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+/* ── INTRO BAR ── */
+.intro-bar{
+  background:var(--gold);
+  padding:1.25rem 2rem;
+  text-align:center;
+  font-size:1rem;font-weight:700;
+  color:#0c0e14;
+  line-height:1.6;
+}
+
+/* ── SECTION ── */
+section{padding:5rem 2rem;}
+.wrap{max-width:1000px;margin:0 auto;}
+
+.sec-label{
+  font-size:0.68rem;letter-spacing:0.22em;
+  text-transform:uppercase;color:var(--gold);
+  margin-bottom:0.6rem;
+  display:flex;align-items:center;gap:0.75rem;
+}
+.sec-label::before{content:'';width:28px;height:1px;background:var(--gold);}
+
+.sec-title{
+  font-family:'Noto Serif KR',serif;
+  font-size:clamp(1.8rem,3.5vw,2.8rem);
+  font-weight:900;line-height:1.2;
+  color:var(--white);margin-bottom:1rem;
+}
+
+/* ── WEEKS ── */
+.weeks{background:var(--bg2);border-top:1px solid var(--border2);}
+
+.week-list{
+  display:flex;flex-direction:column;gap:0;
+  margin-top:3rem;
+  border:1px solid var(--border2);
+}
+
+.week-item{
+  display:grid;
+  grid-template-columns:80px 1fr;
+  border-bottom:1px solid var(--border2);
+  transition:background 0.2s;
+  position:relative;
+  overflow:hidden;
+}
+.week-item:last-child{border-bottom:none;}
+.week-item:hover{background:rgba(232,184,75,0.04);}
+.week-item::before{
+  content:'';
+  position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:transparent;
+  transition:background 0.2s;
+}
+.week-item:hover::before{background:var(--gold);}
+
+.week-num{
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:1.5rem 1rem;
+  border-right:1px solid var(--border2);
+  background:rgba(0,0,0,0.2);
+}
+.week-num .num{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:2.2rem;color:var(--gold);
+  letter-spacing:0.04em;line-height:1;
+}
+.week-num .date{
+  font-size:0.65rem;color:var(--gray);
+  letter-spacing:0.06em;margin-top:0.3rem;
+  text-align:center;
+}
+
+.week-content{
+  padding:1.5rem 1.75rem;
+}
+.week-title{
+  font-family:'Noto Serif KR',serif;
+  font-size:1.05rem;font-weight:900;
+  color:var(--white);
+  line-height:1.5;margin-bottom:0.6rem;
+}
+.week-title .hl{color:var(--gold);}
+.week-aggro{
+  font-size:0.82rem;color:var(--teal);
+  font-style:italic;
+  display:flex;align-items:center;gap:0.4rem;
+}
+.week-aggro::before{
+  content:'▶';font-size:0.6rem;font-style:normal;
+}
+
+/* ── INFO ── */
+.info{background:var(--bg);}
+.info-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1px;background:var(--border2);
+  border:1px solid var(--border2);
+  margin-top:2.5rem;
+}
+.info-card{
+  background:var(--bg2);
+  padding:2rem 1.75rem;
+}
+.info-icon{
+  font-size:1.6rem;margin-bottom:1rem;
+  display:block;
+}
+.info-label{
+  font-size:0.68rem;letter-spacing:0.16em;
+  text-transform:uppercase;color:var(--gold);
+  margin-bottom:0.5rem;
+}
+.info-value{
+  font-size:1rem;font-weight:700;color:var(--white);
+  line-height:1.5;
+}
+.info-sub{
+  font-size:0.8rem;color:var(--gray);
+  margin-top:0.25rem;
+}
+
+/* ── CTA BOTTOM ── */
+.cta-bottom{
+  background:linear-gradient(135deg, #13161f 0%, #0c0e14 100%);
+  border-top:1px solid var(--border);
+  text-align:center;
+  padding:5rem 2rem;
+}
+.cta-bottom-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(2rem,5vw,4rem);
+  letter-spacing:0.04em;
+  color:var(--white);
+  line-height:1;
+  margin-bottom:1rem;
+}
+.cta-bottom-title .gold{color:var(--gold);}
+.cta-bottom-desc{
+  color:var(--gray);font-size:0.95rem;
+  margin-bottom:2.5rem;
+}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--bg);
+  border-top:1px solid var(--border2);
+  padding:1.5rem 2rem;
+  text-align:center;
+  font-size:0.75rem;color:rgba(138,143,168,0.5);
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:700px){
+  .info-grid{grid-template-columns:1fr;}
+  .week-item{grid-template-columns:60px 1fr;}
+  .week-num .num{font-size:1.6rem;}
+  .hero-meta{gap:1rem;}
+  section{padding:3.5rem 1.5rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div style="position:relative;z-index:1;">
+    <div style="display:flex;justify-content:center;">
+      <div class="badge">
+        <div class="badge-dot"></div>
+        무료 · 9주 릴레이 · 2026
+      </div>
+    </div>
+    <h1 class="hero-title">
+      <span class="gold">쿠대</span><br>
+      일요 무료특강<br>
+      <span class="line2">9주 릴레이</span>
+    </h1>
+    <p class="hero-desc">
+      3~4월에 진행했던 6주 일요 무료강의를 너무 좋아해 주셔서<br>
+      <strong>5월과 6월에 걸쳐 9주 무료강의를 준비하였습니다.</strong><br>
+      많은 참여 부탁드립니다!
+    </p>
+    <div class="hero-meta">
+      <div class="meta-item">📅 <strong>5월 3일 ~ 6월 28일</strong></div>
+      <div class="meta-item">🕘 <strong>매주 일요일 밤 9시~10시</strong></div>
+      <div class="meta-item">🎥 <strong>줌 라이브 강의</strong></div>
+      <div class="meta-item">💰 <strong>완전 무료</strong></div>
+    </div>
+    <a href="#weeks" class="hero-cta">커리큘럼 보기 ↓</a>
+  </div>
+</section>
+
+<!-- INTRO BAR -->
+<div class="intro-bar">
+  🔥 매 강의 오프닝 5분 — 아이템 공개 및 판매포인트 소개 · PDF 자료는 후기 작성자 한정 제공
+</div>
+
+<!-- WEEKS -->
+<section class="weeks" id="weeks">
+  <div class="wrap">
+    <div class="sec-label">9주 커리큘럼</div>
+    <h2 class="sec-title">매주 하나씩<br>진짜 실전 노하우</h2>
+
+    <div class="week-list">
+
+      <div class="week-item">
+        <div class="week-num">
+          <div class="num">01</div>
+          <div class="date">5월 3일</div>
+        </div>
+        <div class="week-content">
+          <div class="week-title">쿠대 AI 헬퍼 사용법 — <span class="hl">클릭 몇 번으로 소싱부터 등록까지</span> AI가 다 합니다</div>
+          <div class="week-aggro">이걸 아직도 손으로 하고 있습니까?</div>
+        </div>
+      </div>
+
+      <div class="week-item">
+        <div class="week-num">
+          <div class="num">02</div>
+          <div class="date">5월 10일</div>
+        </div>
+        <div class="week-content">
+          <div class="week-title">국내 리셀은 <span class="hl">여기서</span> 소싱해라 — 아직도 쿠팡 검색으로 찾고 있습니까?</div>
+          <div class="week-aggro">이 소싱처 모르면 경쟁 안 됩니다</div>
+        </div>
+      </div>
+
+      <div class="week-item">
+        <div class="week-num">
+          <div class="num">03</div>
+          <div class="date">5월 17일</div>
+        </div>
+        <div class="week-content">
+          <div class="week-title">일본은 <span class="hl">여기서</span> 소싱하면 됩니다 — 라쿠텐·아마존 말고 진짜 있습니다</div>
+          <div class="week-aggro">일본 셀러 상위 5%만 아는 곳</div>
+        </div>
+      </div>
+
+      <div class="week-item">
+        <div class="week-num">
+          <div class="num">04</div>
+          <div class="date">5월 24일</div>
+        </div>
+        <div class="week-content">
+          <div class="week-title">중국은 <span class="hl">이것만</span> 소싱하면 편하게 판매할 수 있다 — 알리·타오·1688 다 필요 없습니다</div>
+          <div class="week-aggro">3개 다 쓰다 지친 분들 보세요</div>
+        </div>
+      </div>
+
+      <div class="week-item">
+        <div class="week-num">
+          <div class="num">05</div>
+          <div class="date">5월 31일</div>
+        </div>
+        <div class="week-content">
+          <div class="week-title">국내에 없는 브랜드 스니커즈는 <span class="hl">여기서</span> 소싱하자 — 독점 소싱으로 경쟁자 제로</div>
+          <div class="week-aggro">이거 알면 스니커즈 레드오션 없습니다</div>
+        </div>
+      </div>
+
+      <div class="week-item">
+        <div class="week-num">
+          <div class="num">06</div>
+          <div class="date">6월 7일</div>
+        </div>
+        <div class="week-content">
+          <div class="week-title">아마존 관부가세를 <span class="hl">나의 수익으로 다 먹는 법</span> — 남들 다 내는 세금, 나만 안 냅니다</div>
+          <div class="week-aggro">합법적으로 관부가세 0원 만드는 법</div>
+        </div>
+      </div>
+
+      <div class="week-item">
+        <div class="week-num">
+          <div class="num">07</div>
+          <div class="date">6월 14일</div>
+        </div>
+        <div class="week-content">
+          <div class="week-title">무엇을 어디서 얼마나 수집해야 하나? — <span class="hl">수동·반자동·대량 믹스</span> 완전 공개</div>
+          <div class="week-aggro">하나만 쓰는 셀러는 절반만 버는 겁니다</div>
+        </div>
+      </div>
+
+      <div class="week-item">
+        <div class="week-num">
+          <div class="num">08</div>
+          <div class="date">6월 21일</div>
+        </div>
+        <div class="week-content">
+          <div class="week-title">쿠대 대량은 <span class="hl">여기만 긁으면</span> 무조건 돈된다 — 마스터 대량 소싱처 최초 공개</div>
+          <div class="week-aggro">이 루트 공개 후 삭제합니다</div>
+        </div>
+      </div>
+
+      <div class="week-item">
+        <div class="week-num">
+          <div class="num">09</div>
+          <div class="date">6월 28일</div>
+        </div>
+        <div class="week-content">
+          <div class="week-title">쿠대 <span class="hl">신버전 사용법</span> 완전 공개 — 기존 유저도 모르는 숨겨진 기능 전부 꺼냅니다</div>
+          <div class="week-aggro">업데이트만 해놓고 반도 못 쓰던 분들 필참</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- INFO -->
+<section class="info">
+  <div class="wrap">
+    <div class="sec-label">운영 안내</div>
+    <h2 class="sec-title">참여 방법</h2>
+    <div class="info-grid">
+      <div class="info-card">
+        <span class="info-icon">📅</span>
+        <div class="info-label">일정</div>
+        <div class="info-value">매주 일요일 밤 9시~10시</div>
+        <div class="info-sub">5월 3일 ~ 6월 28일 · 총 9주</div>
+      </div>
+      <div class="info-card">
+        <span class="info-icon">🎥</span>
+        <div class="info-label">플랫폼</div>
+        <div class="info-value">줌 라이브 강의</div>
+        <div class="info-sub">참여 링크는 단톡방 공지 예정</div>
+      </div>
+      <div class="info-card">
+        <span class="info-icon">💰</span>
+        <div class="info-label">수강료</div>
+        <div class="info-value">완전 무료</div>
+        <div class="info-sub">누구나 참여 가능합니다</div>
+      </div>
+      <div class="info-card">
+        <span class="info-icon">📄</span>
+        <div class="info-label">PDF 자료</div>
+        <div class="info-value">후기 작성자 한정 제공</div>
+        <div class="info-sub">강의 후 카페·단톡방 후기 작성 시</div>
+      </div>
+      <div class="info-card">
+        <span class="info-icon">🎬</span>
+        <div class="info-label">다시보기</div>
+        <div class="info-value">제공하지 않습니다</div>
+        <div class="info-sub">라이브 현장에서만 들을 수 있습니다</div>
+      </div>
+      <div class="info-card">
+        <span class="info-icon">🚀</span>
+        <div class="info-label">오프닝 5분</div>
+        <div class="info-value">아이템 공개 및 판매포인트 소개</div>
+        <div class="info-sub">매 강의 쿠대 신버전 소식도 함께 공지</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BOTTOM -->
+<section class="cta-bottom">
+  <h2 class="cta-bottom-title">
+    매주 일요일 밤 9시<br>
+    <span class="gold">무료로 만납니다</span>
+  </h2>
+  <p class="cta-bottom-desc">다시보기 없습니다 — 현장에서만 들을 수 있습니다</p>
+  <a href="https://coudae.kr" class="hero-cta" target="_blank">쿠대 바로가기</a>
+  <p style="margin-top:1rem;font-size:0.82rem;color:var(--gray);">coudae.kr</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © 2026 COUDAE · 쿠대 일요 무료특강 9주 릴레이 · 매주 일요일 밤 9시~10시
+</footer>
+
+</body>
+</html>
